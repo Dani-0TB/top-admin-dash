@@ -1,7 +1,8 @@
-@import url(./normalize.css)
+@import url(./normalize.css);
 
 html {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 *, *:before, *:after {
@@ -10,35 +11,217 @@ html {
 
 .container {
     display: grid;
-    background-color: rgb(72, 134, 114);
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(8, 1fr);
     height: 100vh;
 }
 
-.header {
-    padding: 2rem 4rem;
-    background-color: rgb(84, 110, 167);
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
 .sidebar {
-    padding: 2rem 4rem;
-    background-color: rgb(206, 95, 95);
+    padding: 1rem;
+    background-color: rgb(199, 23, 31);
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row: 1 / 9;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 8fr;
+    z-index: 2;
 }
 
-.main {
-    padding: 2rem 4rem;
-    background-color: rgb(77, 161, 77);
+
+.brand {
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 800;
+    color: white;
+}
+
+.brand-img {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.3rem;
+    fill: white;
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 1fr 2fr 4fr;
+}
+
+.nav-main {
+    display: grid;
+    grid-row: 2 / 3;
+    gap: 3px;
+}
+
+.nav-secondary {
+    grid-row: 4 / 5;
+    display: grid;
+    gap: 3px;
+}
+
+.nav-link {
+    padding: 0.2rem;
+}
+
+.nav-link > a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: large;
+}
+
+.header {
+    padding: 0.2rem;
+    background-color: rgb(255, 255, 255);
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+
+    box-shadow: 0 0px 5px 5px rgba(148, 148, 148, 0.342);
+
+    z-index: 1;
+}
+
+.top-bar {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    grid-column: 1 / 6;
+}
+
+.search-bar {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: #dbe0e7;
+    transition: box-shadow 0.1s ease-in-out, outline 0.1s ease-in-out;
+    color: #2e2f30;
+}
+
+.search-bar:focus {
+    outline: 1px solid #318bff;
+    box-shadow: 0px 0px 5px 0px #318bff;
+}
+
+.search-icon {
+    margin-right: 6px;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.notifications {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    grid-column: 6 / 7;
+}
+
+.notification-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.notification-icon:hover {
+    background-color: #dbe0e7;
+}
+
+.notification-icon:active {
+    background-color: #ced3da;
+}
+
+.active-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    grid-column: 7 / 9;
+}
+
+.active-user-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.status-bar {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+}
+
+.user-info {
+    padding: 0px 1.5rem;
+    display: flex;
+    align-items: center;
+    grid-column: 1 / 2;
+}
+
+.greeting {
+    padding: 0 2rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.profile-pic {
+    width: 5rem;
+    height: 5rem;
+}
+
+.greeting-text {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.user-name {
+    height: 100%;
+    margin: 0;
+}
+
+.buttons {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    grid-column: auto;
+}
+
+.btn-primary {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 1.3rem;
+    background-color: #ff3131;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #d32828;
+}
+.main {
+    padding: 2rem 4rem;
+    background-color: #dbe0e7;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 9;
 }
